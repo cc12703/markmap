@@ -43,7 +43,7 @@ export class Toolbar {
 
   private markmap = null;
 
-  private items: (string | IToolbarItem)[] = ['zoomIn', 'zoomOut', 'fit'];
+  private items: (string | IToolbarItem)[] = ['collapseAll', 'zoomIn', 'zoomOut', 'fit'];
 
   static create(mm: any) {
     const toolbar = new Toolbar();
@@ -56,6 +56,13 @@ export class Toolbar {
   }
 
   constructor() {
+    this.register({
+      id: 'collapseAll',
+      title: 'Collapse All',
+      //content: Toolbar.icon('m10,5.21251l-6.07434,7.67769l1.50107,1.89729l4.57326,-5.7804l4.57326,5.7804l1.50107,-1.89729l-6.07434,-7.67769z'),
+      content: Toolbar.icon('m7.99914,10c0,-1.65798 0.89541,-3.00095 2.00086,-3.00095c1.10544,0 2.00086,1.34297 2.00086,3.00095c0,1.65798 -0.89541,3.00095 -2.00086,3.00095c-1.10544,0 -2.00086,-1.34297 -2.00086,-3.00095z'),
+      onClick: this.getHandler(mm => mm.collapseAll()),
+    });
     this.register({
       id: 'zoomIn',
       title: 'Zoom in',

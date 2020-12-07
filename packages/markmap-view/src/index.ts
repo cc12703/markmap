@@ -424,6 +424,22 @@ ${this.getStyleContent()}
     return this.transition(this.svg).call(this.zoom.transform, newTransform).end().catch(noop);
   }
 
+  collapseAll(): Promise<void> {
+    if(!this.state.data)
+      return;
+
+    walkTree(this.state.data, (item, next) => {
+      item.p = {
+        ...item.p,
+        f: (item.d > 1)? true : false,
+      };
+      next()
+    });
+
+    this.renderData(this.state.data);
+    return this.fit();
+  }
+
   static create(
     svg: string | SVGElement | ID3SVGElement,
     opts?: IMarkmapOptions,

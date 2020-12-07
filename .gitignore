@@ -7,3 +7,5 @@ packages/*/dist
 packages/*/coverage
 packages/*/types
 package-lock.json
+.DS_Store
+*.code-workspace
