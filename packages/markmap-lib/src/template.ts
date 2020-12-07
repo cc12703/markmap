@@ -5,7 +5,7 @@ const template: string = process.env.TEMPLATE;
 
 const baseJs: JSItem[] = [
   `https://cdn.jsdelivr.net/npm/d3@${process.env.D3_VERSION}`,
-  `https://cdn.jsdelivr.net/npm/markmap-view@${process.env.VIEW_VERSION}`,
+  `https://cdn.jsdelivr.net/npm/@cc12703m/markmap-view@${process.env.VIEW_VERSION}`,
 ].map((src) => ({
   type: 'script',
   data: {

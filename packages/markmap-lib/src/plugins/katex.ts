@@ -26,7 +26,7 @@ export function transform(transformHooks: ITransformHooks): IAssets {
         type: 'iife',
         data: {
           fn: (getMarkmap) => {
-            getMarkmap().registerRefreshPromise(new Promise(resolve => {
+            getMarkmap().registerRefreshPromise(new Promise<void>(resolve => {
               (window as any).WebFontConfig = {
                 custom: {
                   families: [

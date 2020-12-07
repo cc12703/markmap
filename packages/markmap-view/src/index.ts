@@ -425,15 +425,16 @@ ${this.getStyleContent()}
   }
 
   collapseAll(): Promise<void> {
-    if(!this.state.data)
+    if (!this.state.data) {
       return;
+    }
 
     walkTree(this.state.data, (item, next) => {
       item.p = {
         ...item.p,
-        f: (item.d > 1)? true : false,
+        f: (item.d > 1),
       };
-      next()
+      next();
     });
 
     this.renderData(this.state.data);
